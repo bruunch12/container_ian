@@ -2,9 +2,9 @@ var net = require('net');
 var server = net.createServer(
 	function(socket) {
 		socket.on('data', function(data) {
-		socket.write('echo:'+data);
+			socket.write(process.env["IPADDR"]+ ':' + data);
 			}
 		);
 	}
 );
-server.listen(3000);
+server.listen(2000);
